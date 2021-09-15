@@ -21,8 +21,8 @@ const getData = () =>{
   axios
   .get('https://www.data.gouv.fr/fr/datasets/r/711e86e1-d6db-400a-a2a5-86564c2b78db')
   .then(response=>{
-    let cities = response.data.splice(0,100)
-    City.create(cities)
+    let cities = [...response.data]
+    City.insertMany(cities)
       .then(citiesFromDB=>{
         console.log(`Created ${citiesFromDB.length} cities`)
         mongoose.connection.close()

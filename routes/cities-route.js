@@ -3,24 +3,16 @@ const router = express.Router();
 const City = require('../models/City.model');
 
 router.get('/',(req,res,next)=>{
-  if (!req.query.seachCity) {
-    City.find()
-    .then(citiesFromDB=>{
-      console.log('LOOKING FOR DATA')
-      res.status(200).json(citiesFromDB)
-      return;
-    })
-    .catch(err=>res.status(500).json({message:'something wrong when finding cities'}))
-  } else {
+  let {keyword} = req.body
     let filter = {};
-      filter = { codePostal: { '$regex' : `${req.query.searchCity}`, '$options' : 'i' } } ||  { nomCommune:{ '$regex' : `${req.query.searchCity}`, '$options' : 'i' }};
+      filter = { codePostal: { '$regex' : `${keyword}`, '$options' : 'i' } } ||  { nomCommune:{ '$regex' : `${keyword}`, '$options' : 'i' }};
     City.find(filter)
     .then(citiesFound =>{
+      console.log(citiesFound)
       res.status(200).json(citiesFound);
       return;
     })
     .catch(err=>res.status(500).json({message:'something wrong when filtering'}));
-  }
 })
 
 

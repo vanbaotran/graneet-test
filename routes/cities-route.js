@@ -2,13 +2,12 @@ const express = require("express");
 const router = express.Router();
 const City = require('../models/City.model');
 
-router.get('/',(req,res,next)=>{
-  let {keyword} = req.body
+router.post('/',(req,res,next)=>{
+  const {keyword} = req.body;
     let filter = {};
-      filter = { codePostal: { '$regex' : `${keyword}`, '$options' : 'i' } } ||  { nomCommune:{ '$regex' : `${keyword}`, '$options' : 'i' }};
+      filter =  { $or:[{ nomCommune:{ '$regex' : `${keyword}`, '$options' : 'i' }},{ codePostal:{ '$regex' : `${keyword}`, '$options' : 'i' }}]} ;
     City.find(filter)
     .then(citiesFound =>{
-      console.log(citiesFound)
       res.status(200).json(citiesFound);
       return;
     })

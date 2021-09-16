@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+.searchBar {
+  background-color: #D2E5E9;
+  border-radius: 10px;
+  width: 1380px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin:30px;
+  margin:0 auto;
+}
+.searchBar input {
+  font-family: 'Montserrat', sans-serif;
+  background: #F0FCFF;
+  border-radius: 10px;
+  width: 1080px;
+  height: 61px;
+  border:none;
+  font-weight: 700;
+  font-size: 2rem;
+  color:#DCDCDC;
+}
+.result {
+  display: flex;
+  justify-content: space-between;
+  width: 1380px;
+  margin:0 auto;
+}
+.metropole,.outreMer {
+  margin-top: 30px;
+  background-color: #D2E5E9;
+  border-radius: 10px;
+  width: 675px;
+  text-align: center;
+  padding-bottom: 30px;
+}
+.summary {
+  width: 550px;
+  color: white;
+  margin: 0 auto;
+}
+.summary p {
+  padding: 20px;
+  margin: 0 auto;
+}
+.eachCity {
+  width:250px;
+  background-color: #161C29;
+  color: white;
+  display: flex;
+  margin-top: 30px;
+}
+.eachCity p {
+  padding: 10px;
+}
+.cityList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width:550px;
+  margin:0 auto;
+}
+.codePostal {
+  color: #8C8F9A;
+}

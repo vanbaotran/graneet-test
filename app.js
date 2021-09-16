@@ -45,7 +45,7 @@ app.use(require('node-sass-middleware')({
 app.use(
   cors({
     credentials: true,
-    origin: ['http://localhost:3000'] // <== this will be the URL of our React app (it will be running on port 3000)
+    origin: [process.env.REACT_APP_API_URL, "http://localhost:3000"] // <== this will be the URL of our React app (it will be running on port 3000)
   })
 );
    
